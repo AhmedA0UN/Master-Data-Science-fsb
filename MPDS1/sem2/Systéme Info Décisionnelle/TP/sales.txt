@@ -1,0 +1,4 @@
+City,Sales
+Montreal,10.00
+Quebec, 20.00
+Montreal, 10.00

@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Rows>
+<Row><City>Montreal</City> <TotalSales>20</TotalSales></Row>
+<Row><City>Quebec</City> <TotalSales>20</TotalSales></Row>
+</Rows>

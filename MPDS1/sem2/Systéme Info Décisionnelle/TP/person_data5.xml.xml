@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Rows>
+<Row><ville>Drummondville</ville> <nom>Pierre</nom> <VILLE_1>DRUMMONDVILLE</VILLE_1></Row>
+<Row><ville> Montreal</ville> <nom>Jean</nom> <VILLE_1> MONTREAL</VILLE_1></Row>
+</Rows>
