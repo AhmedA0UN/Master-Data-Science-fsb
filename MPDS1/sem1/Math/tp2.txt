@@ -1,0 +1,61 @@
+import numpy as np
+import matplotlib.pyplot as plt
+# Exemple d'utilisation de la fonction avec des données de test
+data = [3, 45, 239, 504, 191,18]
+
+def AnalyseStat1D(data):
+    # Calcul du mode (Mo) en utilisant np.bincount
+    counts = np.bincount(data) 
+    mode = np.argmax(counts)
+    
+    # Calcul de la moyenne arithmétique
+    mean = np.mean(data)
+    
+    # Calcul de la médiane (Me)
+    median = np.median(data)
+    
+    # Calcul de la variance et de l'écart-type
+    variance = np.var(data)
+    std_deviation = np.std(data)
+    
+    # Calcul des quartiles
+    quartiles = np.percentile(data, [25, 50, 75])
+    
+    # Tracé de l'histogramme
+    plt.hist(data, bins='auto', color='blue', alpha=0.7)
+    plt.title('Histogramme de la distribution')
+    plt.xlabel('Valeurs')
+    plt.ylabel('Fréquence')
+    plt.show()
+    
+    # Représentation de la boîte à moustaches (box plot)
+    plt.boxplot(data)
+    plt.title('Boîte à moustaches de la distribution')
+    plt.ylabel('Valeurs')
+    plt.ylim(0,554) 
+    plt.savefig('SimpleBoxPlot.png') 
+    plt.show()
+
+
+    # Calcul de l'indice d'asymétrie de Yule
+    n = len(data)
+    yule_asymmetry = (3 * (counts[0] + counts[1]) - 2 * counts[2]) / n
+    
+    # Interprétation du résultat de l'asymétrie de Yule
+    if yule_asymmetry > 0:
+        interpretation = "La distribution est positivement asymétrique (skewness)."
+    elif yule_asymmetry < 0:
+        interpretation = "La distribution est négativement asymétrique (skewness)."
+    else:
+        interpretation = "La distribution est symétrique."
+    
+    print("Mode (Mo):", mode)
+    print("Moyenne arithmétique:", mean)
+    print("Médiane (Me):", median)
+    print("Variance:", variance)
+    print("Écart-type:", std_deviation)
+    print("Quartiles (Q1, Q2, Q3):", quartiles)
+    print("Indice d'asymétrie de Yule:", yule_asymmetry)
+    print(interpretation)
+
+AnalyseStat1D(data)
