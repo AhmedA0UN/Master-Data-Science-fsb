@@ -1,0 +1,137 @@
+declare 
+
+begin
+
+select id_personne, age
+from personne, parti, vote 
+where orientation = 'gauche'
+	and degre > 50
+	and vote.id_personne = personne.id_personne
+	and personne.PartiSympathisant = parti.NomParti ;
+end;
+/
+
+
+________________________________________
+declare 
+moyene number ;
+begin 
+select avg(salaire) into moyene
+from personne
+where age between 30 and 40;
+end;
+
+_________________________________________
+
+accept n prompt 'entrer le nom de lutilisateur'
+
+declare
+cursor c is select nom
+from personne , Candidat, Vote
+where 
+candidat.NomParti = Personne.PartiSympathisant
+and nomcondidat = 'foulen ben foulen'
+and Personne.IdPersonne = Vote.IdPersonne
+order by degre;
+
+v_personne personne.nom % type;
+i integer ;
+
+begin 
+open c
+
+for i in 1..&n
+loop
+fetch c into v_personne;
+end loop;
+
+close c;
+end;
+
+**********autre methode************
+
+
+accept n prompt 'entrer le nom de lutilisateur'
+
+declare
+cursor c is select nom
+from personne , Candidat, Vote
+where 
+candidat.NomParti = Personne.PartiSympathisant
+and nomcondidat = 'foulen ben foulen'
+and Personne.IdPersonne = Vote.IdPersonne
+order by degre;
+
+v_personne c%rowtype;
+i integer ;
+
+begin 
+
+for v_personne in c
+loop
+//instruction mte3ek
+i := i + 1 ;
+if (i < n) then exit ;
+end loop;
+
+close c;
+end;
+
+_____________________________________________________________
+
+begin
+
+create or replace function F1()
+return integer
+is 
+nbPersonne integer
+select count(Personne.IdPersonne) into nbPersonne from 
+Personne,Candidat,Vote
+where Personne.IdPersonne = Vote.IdPersonne
+and Personne.NomCandidatVote = Candidat.nomCandidat
+and Candidat.nomCandidat = 'Foulen Ben Foulen'
+and Vote.degre >= 50 
+and Personne.region = 'Bizerte';
+return nbPersonne ;
+end ;
+
+
+_____________________________________________________________
+
+create or replace procedure p1(ageMax in number)
+is
+nbPersonnes integer
+cursor c(ageMax)is
+select count(idPersonne), nomCandidat 
+from personne, candidat
+where age < ageMax
+and candidat.nomCandidat = personne.nomCandidatDernierVote
+group by (nomCandidat);
+
+open c
+
+loop 
+fetch c into nbPersonnes
+exit when c%notfound;
+dbms.out_put.put_line(nbPersonnes);
+end loop;
+
+close c;
+
+
+________________________________________________
+
+create or replace trigger T2
+before insert in parti
+for each row 
+begin
+
+if (nbMilitants = select max(nomParti)
+			from parti)
+then(dbms.out_put.put_line('nb militants max'))
+end if;
+
+if (nomParti) in select nomParti from parti) then 
+update parti set nomParti = ;
+
+end;
