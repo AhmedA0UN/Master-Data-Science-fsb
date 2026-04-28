@@ -1,0 +1,28 @@
+import numpy as np
+L1 = np.array([10, 20, 30, 40])
+C1 = L1[:, np.newaxis]
+M1 = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+print(M1[:, 0])
+
+print(M1[1, :])
+
+print(M1[:, 1:])
+
+print("Taille de M1 :", M1.shape)
+print("Nombre d'éléments de M1 :", M1.size)
+
+ a = np.array([2.1,3.4,6.7,8.1,3.5,7.2])
+A = a.reshape(3, 2)
+
+print("Type des éléments de A :", A.dtype)
+
+A_transpose = A.T
+print("Transposé de A :")
+print(A_transpose)
+
+product = np.dot(A, A_transpose)
+print("Produit matriciel A*At :")
+print(product)

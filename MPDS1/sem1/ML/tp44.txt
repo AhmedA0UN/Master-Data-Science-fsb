@@ -1,0 +1,32 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+url = "https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv"
+iris = pd.read_csv(url)
+# Créez la figure et les axes :
+figure, axe = plt.subplots()
+
+# Dessinez le nuage de points :
+axe.scatter(iris['sepal.length'], iris['sepal.width'])
+
+# Ajoutez un titre et des étiquettes :
+axe.set_title('Iris Dataset')
+axe.set_xlabel('sepal_length')
+axe.set_ylabel('sepal_width')
+plt.show()
+
+# Créez un dictionnaire de couleurs pour les classes :
+colors = {'Setosa': 'r', 'Versicolor': 'g', 'Virginica': 'b'}
+
+# Créez la figure et les axes :
+figure, axe = plt.subplots()
+
+# Dessinez le nuage de points en utilisant les couleurs de classe :
+for i in range(len(iris['sepal.length'])):
+    axe.scatter(iris['sepal.length'][i], iris['sepal.width'][i], color=colors[iris['variety'][i]])
+
+# Ajoutez un titre et des étiquettes :
+axe.set_title('Iris Dataset')
+axe.set_xlabel('sepal.length')
+axe.set_ylabel('sepal.width')
+plt.show()
