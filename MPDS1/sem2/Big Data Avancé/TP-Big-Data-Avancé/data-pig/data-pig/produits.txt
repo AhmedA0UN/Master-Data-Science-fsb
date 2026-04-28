@@ -1,0 +1,3 @@
+10,iphone,1000
+20,samsung,2000
+30,nokia,3000
