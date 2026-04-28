@@ -1,0 +1,8 @@
+Consulter ce lien et essayer de voir le résultat de la simulation sur vos données
+https://lucianoabriata.altervista.org/jsinscience/pca/pca5.html
+
+
+PCA
+
+PCA is a technique used to reduce the number of dimensions in a dataset while preserving the most important information. For this it projects high-dimensional data linearly onto its main components of variation, called the principal components (PC). It can be used to identify the underlying structure of a dataset or to reduce its dimensionality.
+In practice you use PCA to simplify the display of complex data by spreading it on only 1, 2 or 3 dimensions (most commonly on 2, in the form of a bidimensional plot); to find out which of the original variables contribute most to the variability in the dataset; also to remove noise or compress data (such as an image) by reconstructing a dataset from its main PCs and leaving out those that contain more noise; and possibly a few other related applications.
